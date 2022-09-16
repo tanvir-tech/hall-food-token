@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', "Lunch Tokens List")
+@section('title', "Dinner Tokens List")
 
 @section('content')
 
@@ -11,12 +11,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">{{ date('d F, Y', strtotime($date)) }} - Lunch Tokens List (<?php echo $lunch_tokens->count(); ?>)</h4>
+                        <h4 class="mb-sm-0 font-size-18">{{ date('d F, Y', strtotime($date)) }} - Dinner Tokens List (<?php echo $dinner_tokens->count(); ?>)</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('administrator.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">{{ date('d F, Y', strtotime($date)) }} - Lunch Tokens List</li>
+                                <li class="breadcrumb-item active">{{ date('d F, Y', strtotime($date)) }} - Dinner Tokens List</li>
                             </ol>
                         </div>
 
@@ -45,12 +45,12 @@
                     <div class="card">
                         <div class="card-body" style="text-align: center;">
                             <h5>
-                                <span class="text-info"><b> {{ date('d F, Y', strtotime($date)) }} </b></span> <b>-</b> <span class="text-primary"><b style="font-weight: 550;">Lunch Tokens</b></span>
+                                <span class="text-info"><b> {{ date('d F, Y', strtotime($date)) }} </b></span> <b>-</b> <span class="text-primary"><b style="font-weight: 550;">Dinner Tokens</b></span>
                                 
                             </h5> 
 
                             <!-- <h5>
-                                <b style="font-weight: 550;"> Total Tokens </b> <b>:</b> <span class="text-primary"><b style="font-weight: 550;"><?php echo $lunch_tokens->count(); ?></b></span>
+                                <b style="font-weight: 550;"> Total Tokens </b> <b>:</b> <span class="text-primary"><b style="font-weight: 550;"><?php echo $dinner_tokens->count(); ?></b></span>
                                 
                             </h5> 
 
@@ -60,7 +60,7 @@
                             </h5> 
 
                             <h5>
-                                <b style="font-weight: 550;"> Total Collection </b> <b>:</b> <span class="text-primary"><b style="font-weight: 1000;">{{ number_format(33.30 * $lunch_tokens->count(), 2) }} Tk </b></span>
+                                <b style="font-weight: 550;"> Total Collection </b> <b>:</b> <span class="text-primary"><b style="font-weight: 1000;">{{ number_format(33.30 * $dinner_tokens->count(), 2) }} Tk </b></span>
                                 
                             </h5>  -->
                         </div>
@@ -86,7 +86,7 @@
 
                                 <tbody>
                                         
-                                    @foreach($lunch_tokens as $key => $data)
+                                    @foreach($dinner_tokens as $key => $data)
                                         <?php
                                             $student = \App\Models\User::find($data->user_id);
                                         ?>
@@ -96,7 +96,7 @@
                                 
                                             <td class="text-center"><span style="font-weight: 500;">{{ $student->name }}</span></td>
                                             <td class="text-center"><span style="font-weight: 500;">{{ $student->username }}</span></td>
-                                            <td class="text-center"><span style="font-weight: 500;">{{ $key+1 .'-'. $data->lunch }}</span></td>
+                                            <td class="text-center"><span style="font-weight: 500;">{{ $key+1 .'-'. $data->dinner }}</span></td>
 
                                         </tr>
                                     @endforeach
@@ -111,11 +111,11 @@
                                             </td>
 
                                             <td>
-                                                <b style="font-weight: 400;"> Total Tokens :</b> <span class="text-primary"><b style="font-weight: 550;"><?php echo $lunch_tokens->count(); ?></b></span>
+                                                <b style="font-weight: 400;"> Total Tokens :</b> <span class="text-primary"><b style="font-weight: 550;"><?php echo $dinner_tokens->count(); ?></b></span>
                                             </td>
 
                                             <td>
-                                                <b style="font-weight: 400;"> Total Collection :</b> <span class="text-primary"><b style="font-weight: 550;">{{ number_format(33.30 * $lunch_tokens->count(), 2) }} Tk </b></span>
+                                                <b style="font-weight: 400;"> Total Collection :</b> <span class="text-primary"><b style="font-weight: 550;">{{ number_format(33.30 * $dinner_tokens->count(), 2) }} Tk </b></span>
                                             </td>
                                         </tr>
 

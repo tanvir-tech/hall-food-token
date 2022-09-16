@@ -101,7 +101,10 @@
                                             <div class="mb-3 position-relative">
                                                 <label for="validationTooltip01" class="form-label" style="font-size: 16px;">
                                                     
-                                                    <span class="text-warning">@if($check_today->lunch && $check_today->dinner) Lunch & Dinner @elseif($check_today->lunch) Lunch Token @elseif($check_today->dinner) Dinner Token @endif</span> @if($check_today->lunch && $check_today->dinner) both are collected. @elseif($check_today->lunch) is collected. @elseif($check_today->dinner) is collected. @endif                            
+                                                    <span class="text-warning">
+                                                        @if($check_today->lunch && $check_today->dinner) Lunch & Dinner @elseif($check_today->lunch) Lunch Token @elseif($check_today->dinner) Dinner Token @endif
+                                                    </span> @if($check_today->lunch && $check_today->dinner) both are collected. @elseif($check_today->lunch) is collected. @elseif($check_today->dinner) is collected. @endif
+
                                                     <br>
                                                     <h5 class="card-title mt-2"><span style="font-weight: 400;">For</span> Today : <span class="text-warning" style="font-weight: 510;">{{ date('d F, Y') }}</span></h5>
                                                 </label>
@@ -113,7 +116,7 @@
                                                 <div class="card bg-secondary bg-gradient text-white-50">
                                                     <div class="card-body">
                                                         <h5 class="mt-0 mb-2 text-white"><i class="mdi mdi-check-all me-3"></i> Lunch</h5>
-                                                        <h6 class="text-white">Token: <b style="font-family: sans-serif;">{{  $check_today->id.'-'.$check_today->lunch }}</b></h6>
+                                                        <h6 class="text-white">Token: <b style="font-family: sans-serif;">@foreach($lunch_ids as $key => $lunch_id) {{ $key+1 .'-'. $check_today->lunch }} @endforeach</b></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,7 +127,7 @@
                                                 <div class="card bg-info bg-gradient text-white-50">
                                                     <div class="card-body">
                                                         <h5 class="mt-0 mb-2 text-white"><i class="mdi mdi-check-all me-3"></i> Dinner</h5>
-                                                        <h6 class="text-white">Token: <b style="font-family: sans-serif;">{{  $check_today->id.'-'.$check_today->dinner }}</b></h6>
+                                                        <h6 class="text-white">Token: <b style="font-family: sans-serif;">@foreach($dinner_ids as $key => $dinner_id) {{ $key+1 .'-'.$check_today->dinner }} @endforeach</b></h6>
                                                     </div>
                                                 </div>
                                             </div>

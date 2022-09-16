@@ -34,12 +34,15 @@ class StudentToolsController extends Controller
         $check_today = Token::where(['user_id' => Auth::id(), 'token_date' => date('Y-m-d')])->first();
         $user = User::find(Auth::id());
 
+        $lunch_ids  = Token::where(['token_date' => date('Y-m-d')])->where('lunch', '!=', null)->get();
+        $dinner_ids = Token::where(['token_date' => date('Y-m-d')])->where('dinner', '!=', null)->get();
+
         if ($request->has('download')) {
-            $pdf = PDF::loadView('backend.student.token.download', compact('check_today', 'user'));
+            $pdf = PDF::loadView('backend.student.token.download', compact('check_today', 'user', 'lunch_ids', 'dinner_ids'));
             return $pdf->download('food-token.pdf');
         }
 
-        return view('backend.student.token.today', compact('check_today'));
+        return view('backend.student.token.today', compact('check_today', 'lunch_ids', 'dinner_ids'));
     }
 
     public function store_token(Request $request)
@@ -103,6 +106,7 @@ class StudentToolsController extends Controller
         }
 
         $token->cost  = 33.30 + $token->cost;
+        $token->token_date  = date('Y-m-d', strtotime(' +1 day'));
 
         $token->save();
 

@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::get('/generate-role', [RoleController::class, 'generate_role'])->name('generate.role');
+// Route::get('/generate-role', [RoleController::class, 'generate_role'])->name('generate.role');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 	Route::post('/save-theme', [ThemeController::class, 'select_theme'])->name('select.theme');

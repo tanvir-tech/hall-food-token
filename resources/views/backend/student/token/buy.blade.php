@@ -30,7 +30,7 @@
                     <div class="row" id="deviceStandard" style="margin-top:-40px;">
                         <div class="col-md-4"></div>
                         <div class="col-md-4" style="text-align: center !important;">
-                            <div class="alert alert-warning fade show mb-0" style="font-weight:600;" role="alert">
+                            <div class="alert alert-primary fade show mb-0" style="font-weight:600;" role="alert">
                                 <i class="bx bx-timer bx-tada me-2 font-size-15" style="position: relative; top: 2px !important;"></i>
                                 <span class="timer"></span>
                             </div>
@@ -69,7 +69,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    @if($current > 12 && $current < 16)
+                    @if($current > 1 && $current < 4)
                         @if(is_null($check_tomorrow))
                             <form class="needs-validation" action="{{ route('store.token') }}" method="post" novalidate="">
                                 @csrf
@@ -133,7 +133,8 @@
                                                 <div class="mb-3 position-relative">
                                                     <label for="validationTooltip01" class="form-label" style="font-size: 16px;">
                                                         
-                                                        <span class="text-success">@if($check_tomorrow->lunch && $check_tomorrow->dinner) Lunch & Dinner @elseif($check_tomorrow->lunch) Lunch Token @elseif($check_tomorrow->dinner) Dinner Token @endif</span> @if($check_tomorrow->lunch && $check_tomorrow->dinner) both are already collected. @elseif($check_tomorrow->lunch) is already collected! Collect Dinner now. @elseif($check_tomorrow->dinner) is already collected! Collect Lunch now. @endif                            
+                                                        <span class="text-success">
+                                                            @if($check_tomorrow->lunch && $check_tomorrow->dinner) Lunch & Dinner @elseif($check_tomorrow->lunch) Lunch Token @elseif($check_tomorrow->dinner) Dinner Token @endif</span> @if($check_tomorrow->lunch && $check_tomorrow->dinner) both are already collected. @elseif($check_tomorrow->lunch) is already collected! Collect Dinner now. @elseif($check_tomorrow->dinner) is already collected! Collect Lunch now. @endif                            
                                                         <br>
                                                         <h5 class="card-title mt-2"><span style="font-weight: 400;">For</span> Tomorrow : <span class="text-success" style="font-weight: 510;">{{ date('d F, Y', strtotime(' +1 day')) }}</span></h5>
                                                     </label>
@@ -250,13 +251,48 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript">
-        window.onload = displayClock();
-        
-        function displayClock(){
-            var display = new Date().toLocaleTimeString();
-            $('.timer').text(display);
-            setTimeout(displayClock, 1000); 
-        }
-    </script>
+    @if($current > 1 && $current < 4)
+        <script type="text/javascript">
+            // window.onload = displayClock();
+            
+            // function displayClock(){
+            //     var display = new Date().toLocaleTimeString();
+            //     $('.timer').text(display);
+            //     setTimeout(displayClock, 1000); 
+            // }
+            $('.timer').text("Ongoing Now!");
+        </script>
+
+    @else
+
+        <script>
+            
+            var deadline = new Date("30 Sep 2030 03:45:00").getTime();
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var t = deadline - now;
+                console.log(deadline)
+                var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+                var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+                hours   = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+                var test = $('.timer').text(hours +':'+ minutes +':'+ seconds);
+                
+                if ($('.timer').text() == "00:00:00") {
+                    clearInterval(x); 
+                    $('.timer').text("Ongoing Now!");
+                    window.location.reload();   
+                }
+                
+            }, 1000);
+
+        </script>
+
+    @endif
 @endsection

@@ -5,7 +5,7 @@
             <div class="navbar-brand-box">
                 <a href="@if(Auth::user()->hasRole('Administrator')) {{ route('administrator.dashboard') }} @elseif(Auth::user()->hasRole('Student')) {{ route('student.dashboard') }} @endif" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo.svg') }}" alt="" height="22">
+                        <img src="{{ config('core.image.default.logo') }}" alt="" height="40" style="margin-top:-5px;">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ config('core.image.default.logo') }}" class="editPro" alt="" height="60">
@@ -14,7 +14,7 @@
 
                 <a href="@if(Auth::user()->hasRole('Administrator')) {{ route('administrator.dashboard') }} @elseif(Auth::user()->hasRole('Student')) {{ route('student.dashboard') }} @endif" class="logo logo-lights">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-light.svg') }}" alt="" height="22">
+                        <img src="{{ config('core.image.default.logo') }}" alt="" height="40" style="margin-top:-5px;">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ config('core.image.default.logo') }}" class="editPro" alt="" height="60">

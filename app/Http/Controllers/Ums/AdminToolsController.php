@@ -71,4 +71,11 @@ class AdminToolsController extends Controller
         $lunch_tokens = Token::where(['token_date' => date('Y-m-d', strtotime($date))])->where('lunch', '!=', null)->get();
         return view('backend.administrator.lunch-collection', compact('lunch_tokens', 'date'));
     }
+
+    public function dinner_tokens($date)
+    {
+        
+        $dinner_tokens = Token::where(['token_date' => date('Y-m-d', strtotime($date))])->where('dinner', '!=', null)->get();
+        return view('backend.administrator.dinner-collection', compact('dinner_tokens', 'date'));
+    }
 }

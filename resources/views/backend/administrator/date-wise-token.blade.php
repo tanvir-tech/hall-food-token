@@ -84,7 +84,7 @@
                                             </td>
                                             
                                             <td class="text-center">
-                                                <a href="" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="bx bxs-download label-icon"></i> Dinner Tokens <i class="bx bx-right-arrow-circle font-size-20 align-middle me-1"></i></a>
+                                                <a href="{{ route('dinner.tokens', $date) }}" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="bx bxs-download label-icon"></i> Dinner Tokens <i class="bx bx-right-arrow-circle font-size-20 align-middle me-1"></i></a>
                                             </td>
 
                                         </tr>
