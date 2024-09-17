@@ -139,7 +139,7 @@
 
                                 @if($check_today->lunch || $check_today->dinner)
                                     <div class="card-footer">
-                                        <a href="{{ route('today.token', ['download'=>'pdf']) }}" style="width: 100%;" class="btn btn-warning btn-label waves-effect waves-light"><i class="bx bxs-download label-icon"></i> Download as PDF <i class="bx bx-right-arrow-circle bx-fade-right font-size-20 align-middle me-1"></i></a>
+                                        <a href="{{ route('today.token', ['download'=>'pdf']) }}" target="_blank" style="width: 100%;" class="btn btn-warning btn-label waves-effect waves-light"><i class="bx bxs-download label-icon"></i> Download as PDF <i class="bx bx-right-arrow-circle bx-fade-right font-size-20 align-middle me-1"></i></a>
                                     </div>
                                 @endif
                         </div>

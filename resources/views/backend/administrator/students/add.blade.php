@@ -49,8 +49,8 @@
                                     
                                     <div class="col-md-6">
                                         <div class="mb-3 position-relative">
-                                            <label for="validationTooltip01" class="form-label">Room & Seat No. (Ex: <b>205-ka</b>)</label>
-                                            <input type="text" class="form-control" id="validationTooltip01" placeholder="Enter room & seat no." name="username" value="{{ old('username') }}" required="">
+                                            <label for="validationTooltip01" class="form-label">Room & Seat No. (Ex: <b>JAMH-205-ka</b>)</label>
+                                            <input type="text" class="form-control" id="validationTooltip01" placeholder="Enter hall, room & seat no." name="username" value="{{ old('username') }}" required="">
                                             <div class="valid-tooltip">
                                                 Looks good!
                                             </div>
@@ -68,6 +68,24 @@
                                                 <input type="password" id="validationTooltip05" class="form-control" name="password" required autocomplete="current-password" placeholder="Enter {{ __('password') }}" aria-label="Password" aria-describedby="password-addon">
                                                 <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
 
+                                                <div class="valid-tooltip">
+                                                    Looks good!
+                                                </div>
+
+                                                <div class="invalid-tooltip">
+                                                    Please enter password.
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="mb-3 position-relative">
+                                            <label for="validationTooltip06" class="form-label">Student_ID</label>
+                                            <div class="input-group auth-pass-inputgroup">
+                                                <input type="text" id="validationTooltip06" class="form-control" name="student_id" required placeholder="Student ID" aria-label="student_id" aria-describedby="student_id-addon">
+                                                
                                                 <div class="valid-tooltip">
                                                     Looks good!
                                                 </div>

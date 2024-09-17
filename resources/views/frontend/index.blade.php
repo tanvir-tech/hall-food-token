@@ -10,8 +10,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="text-white-50">
-                        <h1 class="text-white font-weight-semibold mb-3 hero-title">{{ config('app.name') }} - Dummy text will be here</h1>
-                        <p class="font-size-14" style="color: #ddd !important;">Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here.Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here.</p>
+                        <h1 class="text-white font-weight-semibold mb-3 hero-title">{{ config('app.name') }} - Online Application</h1>
+                        <p class="font-size-14" style="color: #ddd !important;">The purpose of the application is to decrease the hassales of the students of MBSTU while purchasing their lunch or dinner food tokens. It's a complete solution to buy hall's food token in online. The platform is built to digitilize the purchasing system of food tokens of the halls. </p>
                         
                         <div class="button-items mt-4">
                             @if(Auth::user())
@@ -39,87 +39,6 @@
         <!-- end container -->
     </section>
 
-    <section class="section pt-4 bg-white" id="about" style="padding-top:30px !important;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <h4 style="margin-bottom: 15px;">Messages from VC</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 col-6 ms-lg-auto">
-                    <p class="font-size-14 mb-3" style="font-weight: 500 !important;">Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here.Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here.Dummy details will be here. Dummy details will be here.</p>
-                </div>
-
-                <div class="col-lg-6 col-6 ms-lg-auto">
-                    <div class="card overflow-hidden mb-0 mt-5 mt-lg-0">
-                        
-                            {{-- <img src="assets/images/crypto/blog/img-2.jpg" alt="" class="rounded img-fluid mx-auto d-block"> --}}
-
-                            <div class="zoom-gallery d-flex flex-wrap">
-                                <a href="{{ asset('assets/images/crypto/blog/img-2.jpg') }}" title="Title Here">
-                                    <img src="{{ asset('assets/images/crypto/blog/img-2.jpg') }}" alt="" class="rounded img-fluid mx-auto d-block">
-                                </a>
-                            </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-
-                </div>
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-    </section>
-
-    <section class="section" id="features" style="padding-top:30px !important;">
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <h4>Messages from Chairman, ICT</h4>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- end row -->
-
-            <div class="row" style="padding-top:30px !important;">
-                <div class="col-lg-6 col-6">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="zoom-gallery d-flex flex-wrap">
-                                <a href="{{ asset('assets/images/crypto/blog/img-2.jpg') }}" title="Title Here">
-                                    <img src="{{ asset('assets/images/crypto/blog/img-2.jpg') }}" alt="" class="img-fluid d-block mx-auto">
-                                </a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <!-- end col -->
-
-                <div class="col-lg-6 col-6">
-                    <p class="font-size-14 mb-3" style="font-weight: 500 !important;">Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here.Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here. Dummy details will be here.Dummy details will be here. Dummy details will be here.</p>
-                </div>
-
-            </div>
-
-        </div>
-        <!-- end container -->
-    </section>
-
-
     <section class="section bg-white" id="news" style="padding-top:30px !important;">
         <div class="container">
             <div class="row">
@@ -134,7 +53,7 @@
             <div class="row">
                 <div class="col-12 col-lg-12">
                     <p class="card-title-desc font-size-14">
-                        In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance. In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance. In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance. In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance. In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance. In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance. In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance.In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance.In addition to our border-radius utilities, you can use to give an image a rounded 1px border appearance.
+                        At first, residential or non-residential students will have to login to the application. They will have either Room & Seat No. or Student ID as credentials. Then after login they can be able to purchase food token for tomorrow. Besides, they can be able to check their already bought today's token and download the token stats as a pdf. Hall management will be able to check all the purchased tokens particularly for lunch and dinner of a day. And they can download the list also.
                     </p>
 
                 </div>

@@ -83,7 +83,7 @@
 
     <body data-bs-spy="scroll" data-bs-target="#topnav-menu" data-bs-offset="60">
 
-        <nav class="navbar navbar-expand-lg navigation fixed-top sticky">
+        <nav class="navbar navbar-expand-lg navigation fixed-top sticky" @if(url()->full() == route('login')) style="background: #fff;" @elseif(url()->full() == route('register')) style="background: #fff;" @endif>
             <div class="container">
                 <a class="navbar-logo" href="{{ url('/') }}">
                     <img src="{{ config('core.image.default.logo') }}" class="editPro" alt="" height="60">
@@ -95,17 +95,15 @@
               
                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                     <ul class="navbar-nav ms-auto" id="topnav-menu" >
+
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ url('/') }}">Home</a>
+                            <a class="nav-link" style="color: #222 !important;">@if(url()->full() == route('login')) Sign In @elseif(url()->full() == route('register')) Sign Up @endif</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Events</a>
-                        </li>
+                            @if(url()->full() == route('login')) <a class="nav-link" href="{{ url('/register') }}">Sign Up</a> @elseif(url()->full() == route('register')) <a class="nav-link" href="{{ url('/login') }}">Sign In</a> @endif
+                        </li> 
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Recent Deals</a>
-                        </li>
 
                         {{-- <li class="nav-item">
                             <a class="nav-link @if(url()->full() == route('frontend.about')) active @endif" target="_blank" href="{{ route('frontend.about') }}">About</a>
@@ -113,8 +111,8 @@
                         
                         <li class="nav-item">
                             <a class="nav-link @if(url()->full() == route('frontend.faq')) active @endif" target="_blank" href="{{ route('frontend.faq') }}">FAQs</a>
-                        </li>
- --}}
+                        </li> --}}
+
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="">Contact Us</a>
                         </li> --}}
@@ -172,7 +170,7 @@
                             <img src="{{ config('core.image.default.logo3d') }}" style="background: #fff;border-radius: 2px;" class="editPro" alt="" height="100">
                         </div>
     
-                        <p class="mb-2"><script>document.write(new Date().getFullYear())</script> © Protagger. Developed by Snigdho</p>
+                        <p class="mb-2"><script>document.write(new Date().getFullYear())</script> © MBSTU</p>
                         <p>It will be as simple as occidental in fact, it will be to an english person, it will seem like simplified English, as a skeptical</p>
                     </div>
 

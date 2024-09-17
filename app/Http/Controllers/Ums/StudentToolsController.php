@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Token;
 use App\Models\User;
+use App\Models\Review;
+use App\Models\Notice;
+use App\Models\Complain;
 
 use Auth;
 use Session;
@@ -17,10 +20,22 @@ date_default_timezone_set("Asia/Dhaka");
 
 class StudentToolsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Student']);
+    }
+
+    public function wait_approval()
+    {
+        return view('backend.student.wait-approval');
+    }
+
 	public function student_dashboard()
     {
-        //$check_tomorrow = Token::where(['user_id' => Auth::id(), 'token_date'])->
-    	return view('backend.student.index');
+        // $check_tomorrow = Token::where(['user_id' => Auth::id(), 'token_date'])->
+
+        $notice = Notice::orderBy('created_at', 'asc')->first();
+    	return view('backend.student.index',['notice'=>$notice]);
     }
 
     public function buy_token()
@@ -113,5 +128,44 @@ class StudentToolsController extends Controller
         Session::flash('success', 'Token Bought Successfully !');
         return redirect()->back();
 
+    }
+
+    public function give_review()
+    {
+        return view('backend.student.add-review');
+    }
+
+    public function store_review(Request $request)
+    {
+        $this->validate($request, [
+            'review'  => 'required',
+        ]);
+
+        $review = new Review();
+        $review->review = $request->review;
+
+        $review->save();
+
+        Session::flash('success', 'Review Given Successfully !');
+        return redirect()->back();
+
+    }
+
+    public function complain_create(){
+        return view('backend.student.add-complain');
+    }
+
+
+    public function complain_store(Request $req)
+    {
+        $complain = new Complain();
+        $complain->title = $req->title;
+        $complain->description = $req->description;
+        $complain->complainer_id = Auth::user()->id;
+
+        $complain->save();
+        // return $complain;
+
+        return view('backend.student.add-complain');
     }
 }
